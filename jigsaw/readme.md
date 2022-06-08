@@ -11,30 +11,30 @@
  - tela inicial (iniciar, configurações volume, sair) - 1h
  - pagina no itch - 30min
 ###
-protótipo peças quadradas:
+## protótipo peças quadradas:
   - grid de quads que guarda posição
   - movimentar peças da grid com o mouse
   - se peça estiver próxima da posição original quando solta, snap
 ###
- - adicionar imagem
+ ## adicionar imagem
   - adicionar propriedade de coordenada de textura na grid de quads
   - adicionar imagem referenciada
 ###
- - forma das peças
+## forma das peças
   - shader que cropa a imagem em cada lado baseada em um identificador ( borda, junta interna, junta externa, nada )
 ###
-- efeito sonoros
+## efeito sonoros
  - efeitos para botoes
  - efeito para snap
  - efeitos para grab
 ###
-- musica simples
+## musica simples
  - piano relaxante de fundo
  - forma ABA
  - voz principal + acompanhamento simples
  - ternário
 ###
-- tela inicial
+## tela inicial
  - logo no topo
  - opções centralizadas na parte inferior
   - iniciar
