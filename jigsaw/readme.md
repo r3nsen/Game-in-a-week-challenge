@@ -1,22 +1,8 @@
-# projeto: 1 jogo por semana
-- plano: usar 1h de segunda a sexta para trabalhar em um jogo completo do inicio ao fim
-- dividir o tempo baseado nos conselhos do rd: 25% do tempo para planejar, 50% do tempo para desenvolver, 25% do tempo para polir
-- 5h dão 300min, ou seja:
- - 75min de planejamento
- - 150min de desenvolvimento
- - 75min de polimento
+# jigzaw puzzle
 
-### 
+8 jun 12:05 -> planejamento - 5h restantes
 
-## jigzaw puzzle
-
-- planejamento
-- desenvolvimento
-- polimento
-
-## 8 jun 12:05 -> planejamento - 5h restantes
-
-### workflow:
+## workflow:
  - protótipo peças quadradas - 30min
  - adicionar imagem - 10min
  - forma das peças - 50min
@@ -25,7 +11,7 @@
  - tela inicial (iniciar, configurações volume, sair) - 1h
  - pagina no itch - 30min
 ###
- - protótipo peças quadradas:
+protótipo peças quadradas:
   - grid de quads que guarda posição
   - movimentar peças da grid com o mouse
   - se peça estiver próxima da posição original quando solta, snap
