@@ -11,16 +11,19 @@ namespace jigsaw
         GraphicsDeviceManager _graphics;
         GraphicsManager gm;
 
-        struct Grid
+        public struct Grid
         {
             public float x, y;
+            public float w, h;
             public float ox, oy;
+            public Vector2 lt, lb, rt, rb;
         }
         Grid[] pieces;
 
         int W, H;
         int tableW, tableH;
         int pieceW, pieceH;
+        Texture2D imagem;
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -39,11 +42,13 @@ namespace jigsaw
         {
             gm = new GraphicsManager(GraphicsDevice);
             gm.jigsawFx = Content.Load<Effect>("jigsawFx");
+            imagem = Content.Load<Texture2D>("img");
+            gm.jigsawFx.Parameters["tex"].SetValue(imagem);
 
             W = _graphics.PreferredBackBufferWidth;
             H = _graphics.PreferredBackBufferHeight;
-            tableW = 5;
-            tableH = 5;
+            tableW = 14;
+            tableH = 10;
             pieceW = 40;
             pieceH = 40;
 
@@ -52,12 +57,25 @@ namespace jigsaw
 
             pieces = new Grid[tableW * tableH];
 
+            int imgW = imagem.Width;
+            int imgH = imagem.Height;            
+            // 564 398 - 
+            Vector2 imgSize = new Vector2(imgW, imgH);
+
             for (int j = 0; j < tableH; j++)
             {
                 for (int i = 0; i < tableW; i++)
                 {
                     pieces[i + j * tableW].ox = pieces[i + j * tableW].x = offx + i * pieceW;
                     pieces[i + j * tableW].oy = pieces[i + j * tableW].y = offy + j * pieceH;
+
+                    pieces[i + j * tableW].w = pieceW;
+                    pieces[i + j * tableW].h = pieceH;
+
+                    pieces[i + j * tableW].lt = new Vector2((imgW / tableW) * (i + 0), (imgH / tableH) * (j + 0)) / imgSize;
+                    pieces[i + j * tableW].lb = new Vector2((imgW / tableW) * (i + 0), (imgH / tableH) * (j + 1)) / imgSize;
+                    pieces[i + j * tableW].rt = new Vector2((imgW / tableW) * (i + 1), (imgH / tableH) * (j + 0)) / imgSize;
+                    pieces[i + j * tableW].rb = new Vector2((imgW / tableW) * (i + 1), (imgH / tableH) * (j + 1)) / imgSize;
                     //gm.draw(offx + i * pieceW, offy + j * pieceH, pieceW - 1, pieceH - 1);
                 }
             }
@@ -134,7 +152,7 @@ namespace jigsaw
             {
                 for (int i = 0; i < tableW; i++)
                 {
-                    gm.draw(pieces[i + j * tableW].x, pieces[i + j * tableW].y, pieceW - 1, pieceH - 1);
+                    gm.draw(pieces[i + j * tableW]);//pieces[i + j * tableW].x, pieces[i + j * tableW].y, pieceW - 1, pieceH - 1);
                     //gm.draw(offx + i * pieceW,offy + j * pieceH, pieceW - 1, pieceH - 1);
                 }
             }

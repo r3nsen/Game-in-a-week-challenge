@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 
 using System;
 
+using static jigsaw.Game1;
+
 namespace jigsaw
 {
     internal class GraphicsManager
@@ -35,7 +37,7 @@ namespace jigsaw
             Matrix.CreateLookAt(ref pos, ref target, ref up, out view);
             Matrix.CreateOrthographicOffCenter(x, x + w, y + h, y, 0, 100, out projection);
         }
-        public void draw(float x, float y, float w, float h)
+        public void draw(Grid g)
         {
             EnsureSpace(6, 4);
             index[indexCount++] = (short)(vertexCount + 0);
@@ -45,16 +47,16 @@ namespace jigsaw
             index[indexCount++] = (short)(vertexCount + 3);
             index[indexCount++] = (short)(vertexCount + 2);
 
-            Color col = new Color(75, 60, 90);
+            Color col = Color.White;//new Color(75, 60, 90);
 
-            vertex[vertexCount++] = new VertexPositionColorTexture(new Vector3(0, 0, 0), col, new Vector2(0, 0));
-            vertex[vertexCount++] = new VertexPositionColorTexture(new Vector3(0, 1, 0), col, new Vector2(0, 1));
-            vertex[vertexCount++] = new VertexPositionColorTexture(new Vector3(1, 0, 0), col, new Vector2(1, 0));
-            vertex[vertexCount++] = new VertexPositionColorTexture(new Vector3(1, 1, 0), col, new Vector2(1, 1));
+            vertex[vertexCount++] = new VertexPositionColorTexture(new Vector3(0, 0, 0), col, g.lt); // new Vector2(0, 0));
+            vertex[vertexCount++] = new VertexPositionColorTexture(new Vector3(0, 1, 0), col, g.lb); // new Vector2(0, 1));
+            vertex[vertexCount++] = new VertexPositionColorTexture(new Vector3(1, 0, 0), col, g.rt); // new Vector2(1, 0));
+            vertex[vertexCount++] = new VertexPositionColorTexture(new Vector3(1, 1, 0), col, g.rb); // new Vector2(1, 1));
 
             Matrix world = Matrix.CreateTranslation(new Vector3(-.5f, -.5f, 0) * 0)
-                         * Matrix.CreateScale(new Vector3(w, h, 1))
-                         * Matrix.CreateTranslation(new Vector3(x, y, 0));
+                         * Matrix.CreateScale(new Vector3(g.w, g.h, 1))
+                         * Matrix.CreateTranslation(new Vector3(g.x, g.y, 0));
             for (int i = vertexCount - 4; i < vertexCount; i++)
                 Vector3.Transform(ref vertex[i].Position, ref world, out vertex[i].Position);
         }
