@@ -55,6 +55,4 @@ fim: 8 jun 12:30 - 4h35 min restantes
 - se peça estiver próxima da posição original quando solta, snap - 18:43
 fim 18:43
 
-<p align="center">
-<img src="https://media.discordapp.net/attachments/507552823534288906/984213504515006504/jig.gif" alt="First day" title="First day">
-</p>
+![First day](https://media.discordapp.net/attachments/507552823534288906/984213504515006504/jig.gif)
