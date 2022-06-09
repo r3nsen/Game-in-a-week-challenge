@@ -61,3 +61,5 @@ fim 18:43
 - adicionar propriedade de coordenada de textura na grid de quads - 12:44
 - adicionar imagem referenciada - 12:44
 bug: ultima peça clickada tem que ter prioridade na visualização, ser desenhada por ultimo
+
+![Second day](https://media.discordapp.net/attachments/338374677116354561/984486504585887844/unknown.png)
