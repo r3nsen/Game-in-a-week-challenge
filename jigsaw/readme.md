@@ -76,4 +76,9 @@ observações:
 - adicionar fundo
 - adicionar bordas arredondadas nas peças dos cantos
 
-![Third day](https://media.discordapp.net/attachments/)
+![Third day](https://media.discordapp.net/attachments/338374677116354561/984823442379522078/unknown.png?width=790&height=473)
+
+### 10 jun 11:18 observações
+- arredondar juntas - 11:38
+- adicionar bordas arredondadas nas peças dos cantos - 11:51
+- adicionar fundo - 12:13

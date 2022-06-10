@@ -29,6 +29,8 @@ namespace jigsaw
         {
             _graphics = new GraphicsDeviceManager(this);
             _graphics.GraphicsProfile = GraphicsProfile.HiDef;
+            _graphics.PreferredBackBufferWidth = 960;
+            _graphics.PreferredBackBufferHeight = 540;
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
@@ -46,14 +48,23 @@ namespace jigsaw
             gm.jigsawFx = Content.Load<Effect>("jigsawFx");
             imagem = Content.Load<Texture2D>("img");
             gm.jigsawFx.Parameters["tex"].SetValue(imagem);
+            gm.jigsawFx.Parameters["backcolor"].SetValue(new Color(75, 60, 90).ToVector4());
+            
 
             W = _graphics.PreferredBackBufferWidth;
             H = _graphics.PreferredBackBufferHeight;
 
+            //tableW = 7;
+            //tableH = 5;
+            //pieceW = 80;
+            //pieceH = 80;
+
             tableW = 7;
             tableH = 5;
-            pieceW = 80;
-            pieceH = 80;
+            pieceW = 80;// * 7;
+            pieceH = 80;// * 5;
+
+            gm.jigsawFx.Parameters["table"].SetValue(new Vector2(tableW, tableH));
 
             int offx = (W - tableW * pieceW) / 2;
             int offy = (H - tableH * pieceH) / 2;
