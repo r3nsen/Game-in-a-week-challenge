@@ -60,6 +60,20 @@ fim 18:43
 ### 9 jun 12:12 -> adicionar imagem
 - adicionar propriedade de coordenada de textura na grid de quads - 12:44
 - adicionar imagem referenciada - 12:44
-bug: ultima peça clickada tem que ter prioridade na visualização, ser desenhada por ultimo
+add bug: ultima peça clickada tem que ter prioridade na visualização, ser desenhada por ultimo
 
 ![Second day](https://media.discordapp.net/attachments/338374677116354561/984486504585887844/unknown.png)
+
+### 9 jun 19:01 -> forma das peças
+- ultima peça clickada tem que ter prioridade na visualização, ser desenhada por ultimo - 19:13
+- peças das laterais livre de juntas - 20:20
+- shader que cropa a imagem em cada lado baseada em um identificador ( borda, junta interna, junta externa, nada ) - 20:20
+- algoritmo de juntas - < 21:25
+- peças ocupam casa toda - incompleto - tentado novamente: 22:52
+fim 22:04 - novo fim: 22:52
+
+observações:
+- adicionar fundo
+- adicionar bordas arredondadas nas peças dos cantos
+
+![Third day](https://media.discordapp.net/attachments/)

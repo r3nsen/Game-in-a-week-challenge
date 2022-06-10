@@ -47,14 +47,25 @@ namespace jigsaw
             index[indexCount++] = (short)(vertexCount + 3);
             index[indexCount++] = (short)(vertexCount + 2);
 
-            Color col = Color.White;//new Color(75, 60, 90);
+            Color col = new Color(g.id / 255f, g.side / 255f, 0);//Color.White;//new Color(75, 60, 90);
 
-            vertex[vertexCount++] = new VertexPositionColorTexture(new Vector3(0, 0, 0), col, g.lt); // new Vector2(0, 0));
-            vertex[vertexCount++] = new VertexPositionColorTexture(new Vector3(0, 1, 0), col, g.lb); // new Vector2(0, 1));
-            vertex[vertexCount++] = new VertexPositionColorTexture(new Vector3(1, 0, 0), col, g.rt); // new Vector2(1, 0));
-            vertex[vertexCount++] = new VertexPositionColorTexture(new Vector3(1, 1, 0), col, g.rb); // new Vector2(1, 1));
+            float w = g.rt.X - g.lt.X;
+            float h = g.rb.Y - g.rt.Y;
 
-            Matrix world = Matrix.CreateTranslation(new Vector3(-.5f, -.5f, 0) * 0)
+            Vector2 lt = g.lt + new Vector2(-w * .0f, -h * .0f);
+            Vector2 lb = g.lb + new Vector2(-w * .0f, +h * .0f);
+            Vector2 rt = g.rt + new Vector2(-w * .0f, -h * .0f);
+            Vector2 rb = g.rb + new Vector2(-w * .0f, +h * .0f);
+
+
+
+            vertex[vertexCount++] = new VertexPositionColorTexture(new Vector3(0, 0, 0), col, lt); // new Vector2(0, 0));
+            vertex[vertexCount++] = new VertexPositionColorTexture(new Vector3(0, 1, 0), col, lb); // new Vector2(0, 1));
+            vertex[vertexCount++] = new VertexPositionColorTexture(new Vector3(1, 0, 0), col, rt); // new Vector2(1, 0));
+            vertex[vertexCount++] = new VertexPositionColorTexture(new Vector3(1, 1, 0), col, rb); // new Vector2(1, 1));
+
+            Matrix world = Matrix.CreateTranslation(new Vector3(-.5f, -.5f, 0))
+                          * Matrix.CreateScale(new Vector3(1 / .6f, 1 / .6f, 1))
                          * Matrix.CreateScale(new Vector3(g.w, g.h, 1))
                          * Matrix.CreateTranslation(new Vector3(g.x, g.y, 0));
             for (int i = vertexCount - 4; i < vertexCount; i++)
