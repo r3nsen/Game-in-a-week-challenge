@@ -11,30 +11,30 @@
  - tela inicial (iniciar, configurações volume, sair) - 1h
  - pagina no itch - 30min
 
-## protótipo peças quadradas:
+### protótipo peças quadradas:
   - grid de quads que guarda posição
   - movimentar peças da grid com o mouse
   - se peça estiver próxima da posição original quando solta, snap
 
-## adicionar imagem
+### adicionar imagem
   - adicionar propriedade de coordenada de textura na grid de quads
   - adicionar imagem referenciada
 
-## forma das peças
+### forma das peças
   - shader que cropa a imagem em cada lado baseada em um identificador ( borda, junta interna, junta externa, nada )
 
-## efeito sonoros
+### efeito sonoros
  - efeitos para botoes
  - efeito para snap
  - efeitos para grab
 
-## musica simples
+### musica simples
  - piano relaxante de fundo
  - forma ABA
  - voz principal + acompanhamento simples
  - ternário
 
-## tela inicial
+### tela inicial
  - logo no topo
  - opções centralizadas na parte inferior
   - iniciar
@@ -76,9 +76,11 @@ observações:
 - adicionar fundo
 - adicionar bordas arredondadas nas peças dos cantos
 
-![Third day](https://media.discordapp.net/attachments/338374677116354561/984823442379522078/unknown.png?width=790&height=473)
+![Second day 2](https://media.discordapp.net/attachments/338374677116354561/984823442379522078/unknown.png?width=790&height=473)
 
 ### 10 jun 11:18 observações
 - arredondar juntas - 11:38
 - adicionar bordas arredondadas nas peças dos cantos - 11:51
 - adicionar fundo - 12:13
+
+![Third day](gifs/jigsaw.gif)
