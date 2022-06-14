@@ -2,13 +2,23 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+using System;
+
 namespace Racing
 {
     public class Game1 : Game
     {
-        private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+        GraphicsDeviceManager _graphics;
+        GraphicsManager gm;
 
+        struct Player
+        {
+            public float x, y;
+            public float acc;
+            public float spd, maxspd;
+            public float angle;
+        }
+        Player p;
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -18,34 +28,60 @@ namespace Racing
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            // TODO: use this.Content to load your game content here
+            gm = new GraphicsManager(GraphicsDevice);
+            gm.fx = Content.Load<Effect>("fx");
+            p = new Player();
+            p.acc = .00001f;
+            p.spd = 0;
+            p.maxspd = .002f;
+            p.angle = 0;
+            p.x = .25f;
+            p.y = .5f;
         }
 
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+            p.spd -= p.acc / 2;
+            if (Keyboard.GetState().IsKeyDown(Keys.X))
+            {
+                p.spd += p.acc;
+            }
+            float d = (.01f / p.maxspd) * p.spd;
+            if (Keyboard.GetState().IsKeyDown(Keys.Left))
+                p.angle = (float)((p.angle + d) % (2 * Math.PI));
 
-            // TODO: Add your update logic here
+            if (Keyboard.GetState().IsKeyDown(Keys.Right))
+                p.angle = (float)((p.angle - d) % (2 * Math.PI));
+
+            p.spd = Math.Clamp(p.spd, 0, p.maxspd);
+
+            float x = (float)Math.Sin(p.angle) * p.spd;
+            float y = (float)Math.Cos(p.angle) * p.spd;
+            p.x -= x;
+            p.y -= y;
 
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            
+            int w = _graphics.PreferredBackBufferWidth;
+            int h = _graphics.PreferredBackBufferHeight;
+            GraphicsDevice.Clear(new Color(20, 20, 20));
+            gm.begin(0, 0, w, h);                       
 
-            // TODO: Add your drawing code here
-
+            gm.draw(w / 2, h / 2, 500, 250, rot: p.angle, cx: p.x, cy: p.y);
+            gm.flushPista();
+            gm.draw(w / 2, h / 2, 10, 10);
+            gm.flush();
             base.Draw(gameTime);
         }
     }

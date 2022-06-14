@@ -13,3 +13,7 @@
 - arte das pistas e dos carros e da hud
 - musica e efeitos sonoros
 fim 21:51
+
+## pista com carro quadrado - 14 jun 15:52
+- draw - 16:47
+- pista + quadrado + tentativa incompleta de perspectiva - 18:08
