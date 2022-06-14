@@ -78,7 +78,7 @@ namespace Racing
             GraphicsDevice.Clear(new Color(20, 20, 20));
             gm.begin(0, 0, w, h);                       
 
-            gm.draw(w / 2, h / 2, 500, 250, rot: p.angle, cx: p.x, cy: p.y);
+            gm.draw(w / 2, h / 2, 1000, 1000, rot: p.angle, cx: p.x, cy: p.y);
             gm.flushPista();
             gm.draw(w / 2, h / 2, 10, 10);
             gm.flush();

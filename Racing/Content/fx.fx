@@ -47,8 +47,8 @@ float4 mainPS(VertexShaderOutput input) : COLOR
 float4 pistaPS(VertexShaderOutput input) : COLOR
 {
 	float2 pos = input.tex -.5;
-	float f = (1 - (pos.y + .5));// *.5;
-	pos.x = pos.x * f;// +(1. - f) / 2.;
+	//float f = 1.;// (1 - (pos.y + .5));// *.5;
+	//pos.x = pos.x * f;// +(1. - f) / 2.;
 	float d = abs(abs(length(float2(pos.x, pos.y - clamp(pos.y,-0.2, .2))) - .25) - .03) - .001;
 	float4 col = input.col;
 	col.a = smoothstep(.001, .0, d);

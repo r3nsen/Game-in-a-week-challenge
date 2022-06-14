@@ -17,3 +17,6 @@ fim 21:51
 ## pista com carro quadrado - 14 jun 15:52
 - draw - 16:47
 - pista + quadrado + tentativa incompleta de perspectiva - 18:08
+
+![day 2](imagens/racing1.gif)
+![day 2](imagens/img1.png)
