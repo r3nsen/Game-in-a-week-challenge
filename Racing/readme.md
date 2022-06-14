@@ -12,3 +12,4 @@
 - tela inicial: play, sair
 - arte das pistas e dos carros e da hud
 - musica e efeitos sonoros
+fim 21:51
