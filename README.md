@@ -14,5 +14,6 @@ dividir o tempo baseado nos conselhos do rd:
 
 ### 
 
-## week 1: jigzaw puzzle
+## week 1: jigzaw puzzle - 5h
+## week 2: Racing game   - 10h
 
