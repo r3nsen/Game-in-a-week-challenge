@@ -25,6 +25,7 @@ namespace jigsaw
         int tableW, tableH;
         int pieceW, pieceH;
         Texture2D imagem;
+        Texture2D[] images;
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -42,12 +43,19 @@ namespace jigsaw
             base.Initialize();
         }
         Random rand = new Random(69);
+        int imgIndex = 0;
         protected override void LoadContent()
         {
             gm = new GraphicsManager(GraphicsDevice);
             gm.jigsawFx = Content.Load<Effect>("jigsawFx");
             imagem = Content.Load<Texture2D>("img");
-            gm.jigsawFx.Parameters["tex"].SetValue(imagem);
+            images = new Texture2D[9];
+            for(int i =0; i < 9; i++)
+            {
+                images[i] = Content.Load<Texture2D>("gif/img" + i);
+            }
+            //gm.jigsawFx.Parameters["tex"].SetValue(imagem);
+            gm.jigsawFx.Parameters["tex"].SetValue(images[imgIndex]);
             gm.jigsawFx.Parameters["backcolor"].SetValue(new Color(75, 60, 90).ToVector4());
             
 
@@ -59,10 +67,10 @@ namespace jigsaw
             //pieceW = 80;
             //pieceH = 80;
 
-            tableW = 7;
-            tableH = 5;
-            pieceW = 80;// * 7;
-            pieceH = 80;// * 5;
+            tableW = 10;
+            tableH = 6;
+            pieceW = 50;// * 7;
+            pieceH = 50;// * 5;
 
             gm.jigsawFx.Parameters["table"].SetValue(new Vector2(tableW, tableH));
 
@@ -182,6 +190,8 @@ namespace jigsaw
 
         protected override void Draw(GameTime gameTime)
         {
+            gm.jigsawFx.Parameters["tex"].SetValue(images[imgIndex]);
+            imgIndex = (imgIndex + 1) % 9;
             GraphicsDevice.Clear(new Color(25, 20, 30));
             gm.begin(0, 0, W, H);
 
